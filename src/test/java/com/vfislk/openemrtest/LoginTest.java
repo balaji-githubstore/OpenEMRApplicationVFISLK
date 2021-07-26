@@ -13,16 +13,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class LoginTest {
 	private WebDriver driver;
 	
 	@BeforeMethod
-	public void setUp()
+	@Parameters({"browsername"})
+	public void setUp(@Optional("ch") String browser)
 	{
-		String browser="ie";
-		
 		switch (browser.toLowerCase()) {
 		case "ff":	
 		case "firefox":
