@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class LoginTest {
 	
-	@Test
+	@Test(description = "Valid Credential Test")
 	public void validCredentialTest()
 	{
 		System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver.exe");
@@ -24,6 +24,8 @@ public class LoginTest {
 		Select selectLanguage=new Select(driver.findElement(By.name("languageChoice")));
 		selectLanguage.selectByVisibleText("English (Indian)");		
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		
+		
 		
 	}	
 	
