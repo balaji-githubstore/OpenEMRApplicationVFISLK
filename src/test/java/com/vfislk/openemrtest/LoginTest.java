@@ -21,8 +21,8 @@ public class LoginTest {
 	private WebDriver driver;
 	
 	@BeforeMethod
-	@Parameters({"browsername"})
-	public void setUp(@Optional("ch") String browser)
+	@Parameters({"browsername","url"})
+	public void setUp(@Optional("ch") String browser,@Optional("https://demo.openemr.io/a/openemr/index.php") String url)
 	{
 		switch (browser.toLowerCase()) {
 		case "ff":	
