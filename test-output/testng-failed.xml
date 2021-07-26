@@ -5,7 +5,9 @@
     <classes>
       <class name="com.vfislk.openemrtest.LoginTest">
         <methods>
-          <include name="validCredentialTest"/>
+          <include name="invalidCredentialTest"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- com.vfislk.openemrtest.LoginTest -->
     </classes>
