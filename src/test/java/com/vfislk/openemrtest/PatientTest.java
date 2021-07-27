@@ -5,36 +5,40 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.vfislk.openemrbase.WebDriverWrapper;
+import com.vfislk.openemrpages.DashboardPage;
 import com.vfislk.openemrpages.LoginPage;
+import com.vfislk.openemrpages.SearchOrAddPatientPage;
 	
 public class PatientTest extends WebDriverWrapper {
 
 	@Test
 	public void addPatientTest()
 	{
+		//LoginPage
 		LoginPage login = new LoginPage(driver);
 		login.enterUsername("admin");
 		login.enterPassword("pass");
 		login.selectLanguageByText("English (Indian)");
 		login.clickOnLogin();
 		
-		Actions action=new Actions(driver);
-		action.moveToElement(driver.findElement(By.xpath("//div[text()='Patient/Client']"))).perform();
 		
+		//DashboardPage
+		DashboardPage dashboard=new DashboardPage(driver);
+		dashboard.mousehoverOnPatientClient();
 		driver.findElement(By.xpath("//div[text()='Patients']")).click();
 		
-//		driver.switchTo().frame("fin");
-		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src,'dynamic_finder')]")));
-		
-		driver.findElement(By.xpath("//button[normalize-space()='Add New Patient']")).click();
-		
+		//PatientFinderPage
+		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src,'dynamic_finder')]")));	
+		driver.findElement(By.xpath("//button[normalize-space()='Add New Patient']")).click();	
 		driver.switchTo().defaultContent();
 		
-		
-		driver.switchTo().frame("pat");
+		//SearchOrAddPatientPage
+		SearchOrAddPatientPage search=new SearchOrAddPatientPage(driver);
+		search.switchToPatFrame();
 		
 		driver.findElement(By.id("form_fname")).sendKeys("Sat");
 		driver.findElement(By.id("form_lname")).sendKeys("Dinakaran");	
@@ -45,20 +49,13 @@ public class PatientTest extends WebDriverWrapper {
 		
 		driver.switchTo().defaultContent();
 		
-	
 		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@id='modalframe']")));
-		
 		driver.findElement(By.xpath("//input[@value='Confirm Create New Patient']")).click();
-		
 		driver.switchTo().defaultContent();
 		
-		WebDriverWait wait =new WebDriverWait(driver,50);
-		wait.until(ExpectedConditions.alertIsPresent());
-		
-		String actualAlertText=driver.switchTo().alert().getText();
-		System.out.println(actualAlertText);
-		
-		driver.switchTo().alert().accept();
+
+		String actualAlertText=search.handleAlertAndGetText();
+
 		
 		//check for presence of element
 		if(driver.findElements(By.xpath("//div[@data-dismiss='modal']")).size()>0)
@@ -66,15 +63,19 @@ public class PatientTest extends WebDriverWrapper {
 			driver.findElement(By.xpath("//div[@data-dismiss='modal']")).click();
 		}
 		
-		driver.switchTo().frame("pat");
 		
+		//PatientDashboardPage
+		driver.switchTo().frame("pat");
 		String actualValue = driver.findElement(By.xpath("//h2[contains(text(),'Medical')]")).getText();
 		System.out.println(actualValue);
-		
 		driver.switchTo().defaultContent();
 		
+		//should be in this test method only
+		
 		//assertion on alert
+		Assert.assertTrue(actualAlertText.contains("Tobacco"));
 		//assertion on patient name
+		Assert.assertEquals(actualValue, "Medical Record Dashboard Sat Dinakaran"); 
 		
 	}
 	
