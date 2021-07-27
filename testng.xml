@@ -6,8 +6,7 @@
 	<test thread-count="5" name="Login Test ch">
 	<parameter name="browsername" value="ch"></parameter>
 		<classes>
-			<class name="com.vfislk.openemrtest.LoginTest">
-			</class>
+			<class name="com.vfislk.openemrtest.LoginTest"></class>
 		</classes>
 	</test> <!-- Test -->	
 	

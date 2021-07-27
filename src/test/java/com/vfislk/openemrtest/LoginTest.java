@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.vfislk.openemrbase.WebDriverWrapper;
+import com.vfislk.openemrpages.LoginPage;
 	
 public class LoginTest extends WebDriverWrapper {
 	
@@ -28,10 +29,11 @@ public class LoginTest extends WebDriverWrapper {
 	@Test(description = "Valid Credential Test")
 	public void validCredentialTest()
 	{		
-		driver.findElement(By.id("authUser")).sendKeys("admin");
-		driver.findElement(By.id("clearPass")).sendKeys("pass");	
-		Select selectLanguage=new Select(driver.findElement(By.name("languageChoice")));
-		selectLanguage.selectByVisibleText("English (Indian)");		
+		LoginPage.enterUsername(driver, "admin");
+		LoginPage.enterPassword(driver, "pass");
+		LoginPage.selectLanguageByText(driver, "English (Indian)");	
+		
+		
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		
 		WebDriverWait wait=new WebDriverWait(driver, 50);
