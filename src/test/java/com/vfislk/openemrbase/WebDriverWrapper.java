@@ -43,7 +43,6 @@ public class WebDriverWrapper {
 		
 	}
 	
-	
 	@AfterMethod
 	public void tearDown() {
 	driver.quit();

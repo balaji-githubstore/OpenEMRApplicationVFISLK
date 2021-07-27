@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import com.vfislk.openemrbase.WebDriverWrapper;
 import com.vfislk.openemrpages.DashboardPage;
 import com.vfislk.openemrpages.LoginPage;
+import com.vfislk.utilities.DataProviderUtils;
 	
 public class LoginTest extends WebDriverWrapper {
 
@@ -20,40 +21,10 @@ public class LoginTest extends WebDriverWrapper {
 
 		Assert.assertEquals(login.getInvalidErrorMessage(), "Invalid username or password");
 	}
-
 	
-	//admin,pass,English (Indian),OpenEMR
-	//physician,physician,English (Indian),OpenEMR
-	//accountant,accountant,English (Indian),OpenEMR
-	
-	@DataProvider
-	public Object[][] validCredentialData()
-	{
-		Object[][] main=new Object[3][4];
-		
-		main[0][0]="admin";
-		main[0][1]="pass";
-		main[0][2]="English (Indian)";
-		main[0][3]="OpenEMR";
-		
-		main[1][0]="physician";
-		main[1][1]="physician";
-		main[1][2]="English (Indian)";
-		main[1][3]="OpenEMR";
-		
-		main[2][0]="accountant";
-		main[2][1]="accountant";
-		main[2][2]="English (Indian)";
-		main[2][3]="OpenEMR";
-		
-		return main;
-	}
-	
-	
-	@Test(description = "Valid Credential Test",dataProvider = "validCredentialData")
+	@Test(dataProviderClass = DataProviderUtils.class,dataProvider = "validCredentialData",description = "Valid Credential Test")
 	public void validCredentialTest(String username,String password,String language,String expectedValue) {
-		
-
+	
 		LoginPage login = new LoginPage(driver);
 		login.enterUsername(username);
 		login.enterPassword(password);
