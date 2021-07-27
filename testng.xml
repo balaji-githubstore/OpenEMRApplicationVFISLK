@@ -3,12 +3,12 @@
 
 <suite name="OpenEMR Suite">
 
-	<parameter name="browsername" value="ff"></parameter>
-	<parameter name="url" value="https://demo.openemr.io/a/openemr/index.php"></parameter>
 	<test thread-count="5" name="Login Test ch">
+	<parameter name="browsername" value="ch"></parameter>
 		<classes>
 			<class name="com.vfislk.openemrtest.LoginTest">
 			</class>
 		</classes>
-	</test> <!-- Test -->
+	</test> <!-- Test -->	
+	
 </suite> <!-- Suite -->

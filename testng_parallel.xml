@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="OpenEMR Suite" parallel="tests">
+
+	<parameter name="browsername" value="ff"></parameter>
+	<parameter name="url" value="https://demo.openemr.io/a/openemr/index.php"></parameter>
+	
+	<test thread-count="5" name="Login Test ch">
+	<parameter name="browsername" value="ch"></parameter>
+		<classes>
+			<class name="com.vfislk.openemrtest.LoginTest">
+			</class>
+		</classes>
+	</test> <!-- Test -->
+	
+	<test thread-count="5" name="Login Test ff">
+		<classes>
+			<class name="com.vfislk.openemrtest.LoginTest">
+			</class>
+		</classes>
+	</test> <!-- Test -->
+	
+	
+</suite> <!-- Suite -->
