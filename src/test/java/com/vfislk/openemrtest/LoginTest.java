@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.vfislk.openemrbase.WebDriverWrapper;
+import com.vfislk.openemrpages.DashboardPage;
 import com.vfislk.openemrpages.LoginPage;
 	
 public class LoginTest extends WebDriverWrapper {
@@ -29,20 +30,23 @@ public class LoginTest extends WebDriverWrapper {
 	@Test(description = "Valid Credential Test")
 	public void validCredentialTest()
 	{		
-		LoginPage.enterUsername(driver, "admin");
-		LoginPage.enterPassword(driver, "pass");
-		LoginPage.selectLanguageByText(driver, "English (Indian)");	
+		LoginPage login=new LoginPage(driver);
 		
+		login.enterUsername("admin");
+		login.enterPassword("pass");
+		login.selectLanguageByText("English (Indian)");	
+		login.clickOnLogin();
 		
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
-		
-		WebDriverWait wait=new WebDriverWait(driver, 50);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='Calendar']"))).click();
+		DashboardPage dashboard=new DashboardPage(driver);
+		dashboard.waitForPresenceOfCalendarText();
 		
 		String actualValue=driver.getTitle();	
+		
+		
 		Assert.assertEquals(actualValue,"OpenEMR");		
 			
 	}	
+	//will start by 12 PM IST
 	
 	
 	

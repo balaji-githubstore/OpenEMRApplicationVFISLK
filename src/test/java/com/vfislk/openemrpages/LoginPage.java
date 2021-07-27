@@ -5,22 +5,37 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage {
-	private static By usernameLocator = By.id("authUser");
-	private static By passwordLocator = By.cssSelector("#clearPass");
-	private static By languageLocator=By.name("languageChoice");
-
-	public static void enterUsername(WebDriver driver, String username) {
-		driver.findElement(usernameLocator).sendKeys(username);
+	private By usernameLocator = By.id("authUser");
+	private By passwordLocator = By.cssSelector("#clearPass");
+	private By languageLocator=By.name("languageChoice");
+	private By loginLocator=By.xpath("//button[@type='submit']");
+	
+	private WebDriver driver;
+	
+	public LoginPage(WebDriver driver)
+	{
+		this.driver=driver;
 	}
 
-	public static void enterPassword(WebDriver driver, String password) {
+	public void enterUsername(String username) {
+		this.driver.findElement(this.usernameLocator).sendKeys(username);
+	}
+
+	public void enterPassword(String password) {
 		driver.findElement(passwordLocator).sendKeys(password);
 	}
 	
-	public static void selectLanguageByText(WebDriver driver,String languageText)
+	public void selectLanguageByText(String languageText)
 	{
 		Select selectLanguage=new Select(driver.findElement(languageLocator));
 		selectLanguage.selectByVisibleText(languageText);
 	}
-
+	
+	public void clickOnLogin()
+	{
+		driver.findElement(loginLocator).click();
+	}
 }
+
+
+
