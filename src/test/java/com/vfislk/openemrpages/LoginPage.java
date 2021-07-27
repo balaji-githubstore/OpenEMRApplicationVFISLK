@@ -9,6 +9,10 @@ public class LoginPage {
 	private By passwordLocator = By.cssSelector("#clearPass");
 	private By languageLocator=By.name("languageChoice");
 	private By loginLocator=By.xpath("//button[@type='submit']");
+	private By errorLocator=By.xpath("//div[contains(text(),'Invalid')]");
+	private By ackLicCertLocator=By.partialLinkText("Acknowledgments");
+	private By appDescriptionLocator=By.xpath("//p[contains(text(),'most')]");
+	
 	
 	private WebDriver driver;
 	
@@ -34,6 +38,21 @@ public class LoginPage {
 	public void clickOnLogin()
 	{
 		driver.findElement(loginLocator).click();
+	}
+	
+	public String getInvalidErrorMessage()
+	{
+		return driver.findElement(errorLocator).getText().trim();
+	}
+	
+	public void clickOnAcknowledgmentsLicensingAndCertification()
+	{
+		driver.findElement(ackLicCertLocator).click();
+	}
+	
+	public String getApplicationDescription()
+	{
+		return driver.findElement(appDescriptionLocator).getText().trim();
 	}
 }
 

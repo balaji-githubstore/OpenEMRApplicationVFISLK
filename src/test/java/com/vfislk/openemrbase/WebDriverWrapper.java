@@ -11,6 +11,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import com.vfislk.openemrpages.DashboardPage;
+import com.vfislk.openemrpages.LoginPage;
+
 public class WebDriverWrapper {
 	protected WebDriver driver;
 
@@ -37,8 +40,10 @@ public class WebDriverWrapper {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get("https://demo.openemr.io/a/openemr/index.php");
+		
 	}
-
+	
+	
 	@AfterMethod
 	public void tearDown() {
 	driver.quit();

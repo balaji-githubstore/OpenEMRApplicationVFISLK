@@ -8,12 +8,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import com.vfislk.openemrbase.WebDriverWrapper;
+import com.vfislk.openemrpages.LoginPage;
 	
 public class PatientTest extends WebDriverWrapper {
 
 	@Test
 	public void addPatientTest()
 	{
+		LoginPage login = new LoginPage(driver);
+		login.enterUsername("admin");
+		login.enterPassword("pass");
+		login.selectLanguageByText("English (Indian)");
+		login.clickOnLogin();
+		
 		Actions action=new Actions(driver);
 		action.moveToElement(driver.findElement(By.xpath("//div[text()='Patient/Client']"))).perform();
 		
