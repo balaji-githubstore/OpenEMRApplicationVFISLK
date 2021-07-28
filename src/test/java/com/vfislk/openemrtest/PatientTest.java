@@ -17,7 +17,7 @@ import com.vfislk.utilities.DataProviderUtils;
 public class PatientTest extends WebDriverWrapper {
 
 	
-	@Test(dataProviderClass = DataProviderUtils.class,dataProvider = "addPatientData")
+	@Test(dataProviderClass = DataProviderUtils.class,dataProvider = "commonDataProvider")
 	public void addPatientTest(String username,String password,String language,String firstname,String lastname,String dob,String gender,String expectedAlertText,String expectedValue)
 	{
 		//LoginPage
