@@ -1,5 +1,6 @@
 package com.vfislk.openemrtest;
 
+import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -10,29 +11,33 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.Test;
 
-
 public class DemoTest {
-	
+
 	@Test
-	public void excelRead() throws IOException  {
-	
-		FileInputStream file=new FileInputStream("src/test/resources/testdata/OpenEMRData.xlsx"); //location - read
+	public void excelRead() throws IOException {		
+		FileInputStream file = new FileInputStream("src/test/resources/testdata/OpenEMRData.xlsx"); // location - read
 		
-		XSSFWorkbook book=new XSSFWorkbook(file); //open
+		XSSFWorkbook book = new XSSFWorkbook(file); // open
+
+		XSSFSheet sheet = book.getSheet("invalidCredentialTest"); // sheet
 		
-		XSSFSheet sheet=  book.getSheet("invalidCredentialTest"); //sheet
-		
-		XSSFRow row=sheet.getRow(1); //row
-		
-		XSSFCell cell= row.getCell(0);//cell
-		
-		DataFormatter format=new DataFormatter();		
-		String cellValue = format.formatCellValue(cell);
-		
-		System.out.println(cellValue);
-		
+		//rowcount
+		//cellcount
+		for (int r = 1; r < 3; r++) 
+		{
+			XSSFRow row = sheet.getRow(r); // row
+			for (int c = 0; c < 4; c++) 
+			{		
+				XSSFCell cell = row.getCell(c);// cell
+				DataFormatter format = new DataFormatter();
+				String cellValue = format.formatCellValue(cell);
+				System.out.println(cellValue);
+			}
+		}
+
 		book.close();
 		file.close();
+		//will start by 12 PM IST
 	}
 
 }
