@@ -25,7 +25,6 @@ public class PatientTest extends WebDriverWrapper {
 		login.selectLanguageByText("English (Indian)");
 		login.clickOnLogin();
 		
-		
 		//DashboardPage
 		DashboardPage dashboard=new DashboardPage(driver);
 		dashboard.mousehoverOnPatientClient();
@@ -53,16 +52,13 @@ public class PatientTest extends WebDriverWrapper {
 		driver.findElement(By.xpath("//input[@value='Confirm Create New Patient']")).click();
 		driver.switchTo().defaultContent();
 		
-
 		String actualAlertText=search.handleAlertAndGetText();
-
 		
 		//check for presence of element
 		if(driver.findElements(By.xpath("//div[@data-dismiss='modal']")).size()>0)
 		{
 			driver.findElement(By.xpath("//div[@data-dismiss='modal']")).click();
 		}
-		
 		
 		//PatientDashboardPage
 		driver.switchTo().frame("pat");
@@ -76,7 +72,6 @@ public class PatientTest extends WebDriverWrapper {
 		Assert.assertTrue(actualAlertText.contains("Tobacco"));
 		//assertion on patient name
 		Assert.assertEquals(actualValue, "Medical Record Dashboard Sat Dinakaran"); 
-		
 	}
 	
 }
