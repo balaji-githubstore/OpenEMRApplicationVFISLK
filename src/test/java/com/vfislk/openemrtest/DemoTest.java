@@ -17,27 +17,34 @@ public class DemoTest {
 	public void excelRead() throws IOException {		
 		FileInputStream file = new FileInputStream("src/test/resources/testdata/OpenEMRData.xlsx"); // location - read
 		
-		XSSFWorkbook book = new XSSFWorkbook(file); // open
-
-		XSSFSheet sheet = book.getSheet("invalidCredentialTest"); // sheet
+		XSSFWorkbook book = new XSSFWorkbook(file); 
+		XSSFSheet sheet = book.getSheet("invalidCredentialTest");
 		
-		//rowcount
-		//cellcount
-		for (int r = 1; r < 3; r++) 
+		int rowCount=sheet.getPhysicalNumberOfRows();
+		System.out.println(rowCount);
+		
+		int cellCount=sheet.getRow(0).getPhysicalNumberOfCells();
+		System.out.println(cellCount);
+		
+		DataFormatter format = new DataFormatter();
+		
+		Object[][] main=new Object[rowCount-1][cellCount];
+		
+		for (int r = 1; r < rowCount; r++) 
 		{
-			XSSFRow row = sheet.getRow(r); // row
-			for (int c = 0; c < 4; c++) 
+			XSSFRow row = sheet.getRow(r);
+			for (int c = 0; c < cellCount; c++) 
 			{		
-				XSSFCell cell = row.getCell(c);// cell
-				DataFormatter format = new DataFormatter();
+				XSSFCell cell = row.getCell(c);		
 				String cellValue = format.formatCellValue(cell);
 				System.out.println(cellValue);
+				main[r-1][c]=cellValue;
 			}
 		}
 
 		book.close();
 		file.close();
-		//will start by 12 PM IST
+		
 	}
 
 }
