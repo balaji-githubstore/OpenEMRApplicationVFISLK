@@ -1,6 +1,5 @@
-package com.vfislk.openemrtest;
+package com.vfislk.utilities;
 
-import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -9,22 +8,17 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.testng.annotations.Test;
 
-public class DemoTest {
-
-	@Test
-	public void excelRead() throws IOException {		
-		FileInputStream file = new FileInputStream("src/test/resources/testdata/OpenEMRData.xlsx"); // location - read
+public class ExcelUtils {
+	
+	public static Object[][] getSheetIntoObjectArray(String fileDetail,String sheetName) throws IOException
+	{
+		FileInputStream file = new FileInputStream(fileDetail);
 		
 		XSSFWorkbook book = new XSSFWorkbook(file); 
-		XSSFSheet sheet = book.getSheet("Sheet1");
-		
-		int rowCount=sheet.getPhysicalNumberOfRows();
-		System.out.println(rowCount);
-		
+		XSSFSheet sheet = book.getSheet(sheetName);	
+		int rowCount=sheet.getPhysicalNumberOfRows();	
 		int cellCount=sheet.getRow(0).getPhysicalNumberOfCells();
-		System.out.println(cellCount);
 		
 		DataFormatter format = new DataFormatter();
 		
@@ -36,15 +30,14 @@ public class DemoTest {
 			for (int c = 0; c < cellCount; c++) 
 			{		
 				XSSFCell cell = row.getCell(c);		
-				String cellValue = format.formatCellValue(cell);
-				System.out.println(cellValue);
-				main[r-1][c]=cellValue;
+				main[r-1][c]=format.formatCellValue(cell);;
 			}
 		}
 
 		book.close();
 		file.close();
 		
+		return main;
 	}
 
 }
