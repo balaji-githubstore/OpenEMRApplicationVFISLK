@@ -1,8 +1,25 @@
 package com.vfislk.utilities;
 
+import java.io.IOException;
+
 import org.testng.annotations.DataProvider;
 
 public class DataProviderUtils {
+	
+	@DataProvider
+	public Object[][] addPatientData() throws IOException
+	{
+		 Object[][] main= ExcelUtils.getSheetIntoObjectArray("src/test/resources/testdata/OpenEMRData.xlsx", "addPatientTest");
+		 return main;
+	}
+	
+	@DataProvider
+	public Object[][] invalidCredentialData() throws IOException
+	{
+		 Object[][] main= ExcelUtils.getSheetIntoObjectArray("src/test/resources/testdata/OpenEMRData.xlsx", "invalidCredentialTest");
+		 return main;
+	}
+	
 
 	// admin,pass,English (Indian),OpenEMR
 	// physician,physician,English (Indian),OpenEMR

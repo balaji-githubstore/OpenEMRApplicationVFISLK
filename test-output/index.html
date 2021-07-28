@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\JiDi\AppData\Local\Temp\testng-eclipse--1704310710\testng-customsuite.xml</span>
+                    <span>C:\Users\JiDi\AppData\Local\Temp\testng-eclipse--1675094756\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.vfislk.openemrtest.DemoTest" hash-for-method="excelRead">excelRead</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.vfislk.openemrtest.PatientTest" hash-for-method="addPatientTest(admin, pass, English (Indian), Bala, dina, 2021-07-20, Male, Tobacco, Medical Record Dashboard - Bal...)">addPatientTest(admin, pass, English (Indian), Bala, dina, 2021-07-20, Male, Tobacco, Medical Record Dashboard - Bal...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -122,14 +122,15 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.vfislk.openemrtest.DemoTest</span>
+              <span class="class-name">com.vfislk.openemrtest.PatientTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="excelRead">
-                  </a> <!-- excelRead -->
-                  <span class="method-name">excelRead</span>
+                  <a name="addPatientTest(admin, pass, English (Indian), Bala, dina, 2021-07-20, Male, Tobacco, Medical Record Dashboard - Bal...)">
+                  </a> <!-- addPatientTest(admin, pass, English (Indian), Bala, dina, 2021-07-20, Male, Tobacco, Medical Record Dashboard - Bal...) -->
+                  <span class="method-name">addPatientTest</span>
+                  <span class="parameters">(admin, pass, English (Indian), Bala, dina, 2021-07-20, Male, Tobacco, Medical Record Dashboard - Bala Dina)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -137,7 +138,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\JiDi\AppData\Local\Temp\testng-eclipse--1704310710\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\JiDi\AppData\Local\Temp\testng-eclipse--1675094756\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -146,7 +147,11 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.vfislk.openemrtest.DemoTest&quot;/&gt;
+      &lt;class name=&quot;com.vfislk.openemrtest.PatientTest&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;addPatientTest&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- com.vfislk.openemrtest.PatientTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -188,14 +193,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'excelRead')
-data.setCell(0, 2, 'com.vfislk.openemrtest.DemoTest')
-data.setCell(0, 3, 10734);
+data.setCell(0, 1, 'addPatientTest')
+data.setCell(0, 2, 'com.vfislk.openemrtest.PatientTest')
+data.setCell(0, 3, 62083);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 10 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -221,11 +226,19 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.vfislk.openemrtest.DemoTest</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">excelRead</span>
+              <div class="chronological-class-name">com.vfislk.openemrtest.PatientTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp(ch, https://demo.openemr.io/a/openemr/index.php)</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">addPatientTest(admin, pass, English (Indian), Bala, dina, 2021-07-20, Male, Tobacco, Medical Record Dashboard - Bal...)</span>
+                <span class="method-start">8690 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">70779 ms</span>
+              </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

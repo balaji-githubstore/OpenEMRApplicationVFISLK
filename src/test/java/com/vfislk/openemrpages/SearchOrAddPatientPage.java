@@ -21,7 +21,7 @@ public class SearchOrAddPatientPage {
 		wait.until(ExpectedConditions.alertIsPresent());
 
 		String actualAlertText = driver.switchTo().alert().getText();
-		System.out.println(actualAlertText);
+//		System.out.println(actualAlertText);
 
 		driver.switchTo().alert().accept();
 

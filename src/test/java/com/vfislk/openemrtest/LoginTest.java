@@ -11,15 +11,15 @@ import com.vfislk.utilities.DataProviderUtils;
 	
 public class LoginTest extends WebDriverWrapper {
 
-	@Test
-	public void invalidCredentialTest() {
+	@Test(dataProviderClass = DataProviderUtils.class,dataProvider = "invalidCredentialData")
+	public void invalidCredentialTest(String username,String password,String language,String expectedValue) {
 		LoginPage login = new LoginPage(driver);
-		login.enterUsername("admin123");
-		login.enterPassword("pass");
-		login.selectLanguageByText("Dutch");
+		login.enterUsername(username);
+		login.enterPassword(password);
+		login.selectLanguageByText(language);
 		login.clickOnLogin();
 
-		Assert.assertEquals(login.getInvalidErrorMessage(), "Invalid username or password");
+		Assert.assertEquals(login.getInvalidErrorMessage(), expectedValue);
 	}
 	
 	@Test(dataProviderClass = DataProviderUtils.class,dataProvider = "validCredentialData",description = "Valid Credential Test")
