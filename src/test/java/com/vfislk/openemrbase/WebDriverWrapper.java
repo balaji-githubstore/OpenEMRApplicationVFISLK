@@ -1,7 +1,13 @@
 package com.vfislk.openemrbase;
 
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -44,8 +50,17 @@ public class WebDriverWrapper {
 		
 	}
 	
+	public void takeScreenshot() throws IOException
+	{
+		String fileName="screenshot_"+LocalDateTime.now().toString().replace(":", "-")+".png";
+		TakesScreenshot ts=(TakesScreenshot) driver;	
+		File file =ts.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(file, new File("src/test/resources/screenshots/"+fileName));
+	}
+	
 	@AfterMethod
-	public void tearDown() {
+	public void tearDown() throws IOException {
+	takeScreenshot();	
 	driver.quit();
 	}
 

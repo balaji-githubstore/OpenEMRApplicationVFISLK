@@ -18,7 +18,7 @@ public class DemoTest {
 		FileInputStream file = new FileInputStream("src/test/resources/testdata/OpenEMRData.xlsx"); // location - read
 		
 		XSSFWorkbook book = new XSSFWorkbook(file); 
-		XSSFSheet sheet = book.getSheet("Sheet1");
+		XSSFSheet sheet = book.getSheet("addPatientTest");
 		
 		int rowCount=sheet.getPhysicalNumberOfRows();
 		System.out.println(rowCount);
