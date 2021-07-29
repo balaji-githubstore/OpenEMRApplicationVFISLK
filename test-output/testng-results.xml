@@ -1,17 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="75" started-at="2021-07-29T11:15:46 IST" finished-at="2021-07-29T11:15:46 IST">
+  <suite name="OpenEMR Suite" duration-ms="111545" started-at="2021-07-29T12:07:30 IST" finished-at="2021-07-29T12:09:22 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="75" started-at="2021-07-29T11:15:46 IST" finished-at="2021-07-29T11:15:46 IST">
-      <class name="com.vfislk.openemrtest.DemoTest">
-        <test-method status="PASS" signature="readProperties()[pri:0, instance:com.vfislk.openemrtest.DemoTest@612679d6]" name="readProperties" duration-ms="9" started-at="2021-07-29T11:15:46 IST" finished-at="2021-07-29T11:15:46 IST">
+    <test name="Login Test ch" duration-ms="111545" started-at="2021-07-29T12:07:30 IST" finished-at="2021-07-29T12:09:22 IST">
+      <class name="com.vfislk.openemrtest.AboutTest">
+        <test-method status="PASS" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:com.vfislk.openemrtest.AboutTest@2a266d09]" name="setUp" is-config="true" duration-ms="74676" started-at="2021-07-29T12:07:34 IST" finished-at="2021-07-29T12:08:48 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ch]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://demo.openemr.io/b/openemr/index.php]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- readProperties -->
-      </class> <!-- com.vfislk.openemrtest.DemoTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="checkHeaderAndVersionTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.vfislk.openemrtest.AboutTest@2a266d09]" name="checkHeaderAndVersionTest" duration-ms="7734" started-at="2021-07-29T12:08:48 IST" data-provider="commonDataProvider" finished-at="2021-07-29T12:08:56 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[pass]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[English (Indian)]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[About OpenEMR]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Version Number: v6.0.0 (1)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkHeaderAndVersionTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vfislk.openemrtest.AboutTest@2a266d09]" name="tearDown" is-config="true" duration-ms="1021" started-at="2021-07-29T12:08:56 IST" finished-at="2021-07-29T12:08:57 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp(java.lang.String,java.lang.String)[pri:0, instance:com.vfislk.openemrtest.AboutTest@2a266d09]" name="setUp" is-config="true" duration-ms="17336" started-at="2021-07-29T12:08:57 IST" finished-at="2021-07-29T12:09:14 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ch]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://demo.openemr.io/b/openemr/index.php]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="checkHeaderAndVersionTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.vfislk.openemrtest.AboutTest@2a266d09]" name="checkHeaderAndVersionTest" duration-ms="6518" started-at="2021-07-29T12:09:14 IST" data-provider="commonDataProvider" finished-at="2021-07-29T12:09:21 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[accountant]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[accountant]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[English (Indian)]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[About OpenEMR]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Version Number: v6.0.0 (1)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkHeaderAndVersionTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vfislk.openemrtest.AboutTest@2a266d09]" name="tearDown" is-config="true" duration-ms="977" started-at="2021-07-29T12:09:21 IST" finished-at="2021-07-29T12:09:22 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.vfislk.openemrtest.AboutTest -->
+    </test> <!-- Login Test ch -->
+  </suite> <!-- OpenEMR Suite -->
 </testng-results>
