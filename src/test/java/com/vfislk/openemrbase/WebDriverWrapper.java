@@ -36,7 +36,6 @@ public class WebDriverWrapper {
 			url=PropertiesUtils.getValue("src/test/resources/testdata/data.properties", "url");
 		}
 		
-		
 		launchBrowser(browser);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
