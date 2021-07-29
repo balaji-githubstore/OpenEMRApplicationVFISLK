@@ -23,12 +23,10 @@ public class DemoTest {
 		Properties prop=new Properties();
 		prop.load(file);
 		
-		String browserName=prop.getProperty("browser");
+		String browserName=prop.getProperty("browser1", "chrome");
 		System.out.println(browserName);
 		
 	}
-	
-	
 
 	@Test
 	public void excelRead() throws IOException {		
