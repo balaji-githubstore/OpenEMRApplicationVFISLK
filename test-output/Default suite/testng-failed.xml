@@ -5,7 +5,7 @@
     <classes>
       <class name="com.vfislk.openemrtest.AboutTest">
         <methods>
-          <include name="checkHeaderAndVersionTest"/>
+          <include name="checkHeaderAndVersionTest" invocation-numbers="0 1"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
