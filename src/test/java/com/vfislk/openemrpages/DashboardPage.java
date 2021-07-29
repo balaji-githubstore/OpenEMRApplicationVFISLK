@@ -8,7 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DashboardPage {
 	private By calendarLocator = By.xpath("//span[text()='Calendar']");
-	private By patientClientLocator=By.xpath("//div[text()='Patient/Client']");
+	private By patientClientLocator = By.xpath("//div[text()='Patient/Client']");
+	private By patientsLocator = By.xpath("//div[text()='Patients']");
 
 	private WebDriver driver;
 
@@ -24,11 +25,14 @@ public class DashboardPage {
 	public String getCurrentTitle() {
 		return driver.getTitle().trim();
 	}
-	
-	public void mousehoverOnPatientClient()
-	{
-		Actions action=new Actions(driver);
+
+	public void mousehoverOnPatientClient() {
+		Actions action = new Actions(driver);
 		action.moveToElement(driver.findElement(patientClientLocator)).perform();
+	}
+
+	public void clickOnPatients() {
+		driver.findElement(patientsLocator).click();
 	}
 
 }

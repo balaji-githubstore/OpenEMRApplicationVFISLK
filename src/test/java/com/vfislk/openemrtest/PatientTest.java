@@ -11,6 +11,8 @@ import org.testng.annotations.Test;
 import com.vfislk.openemrbase.WebDriverWrapper;
 import com.vfislk.openemrpages.DashboardPage;
 import com.vfislk.openemrpages.LoginPage;
+import com.vfislk.openemrpages.PatientDashboardPage;
+import com.vfislk.openemrpages.PatientFinderPage;
 import com.vfislk.openemrpages.SearchOrAddPatientPage;
 import com.vfislk.utilities.DataProviderUtils;
 	
@@ -30,12 +32,11 @@ public class PatientTest extends WebDriverWrapper {
 		//DashboardPage
 		DashboardPage dashboard=new DashboardPage(driver);
 		dashboard.mousehoverOnPatientClient();
-		driver.findElement(By.xpath("//div[text()='Patients']")).click();
+		dashboard.clickOnPatients();
 		
 		//PatientFinderPage
-		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[contains(@src,'dynamic_finder')]")));	
-		driver.findElement(By.xpath("//button[normalize-space()='Add New Patient']")).click();	
-		driver.switchTo().defaultContent();
+		PatientFinderPage pf=new PatientFinderPage(driver);
+		pf.clickOnAddPatient();
 		
 		//SearchOrAddPatientPage
 		SearchOrAddPatientPage search=new SearchOrAddPatientPage(driver);
@@ -50,30 +51,21 @@ public class PatientTest extends WebDriverWrapper {
 		
 		driver.switchTo().defaultContent();
 		
-		driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@id='modalframe']")));
-		driver.findElement(By.xpath("//input[@value='Confirm Create New Patient']")).click();
-		driver.switchTo().defaultContent();
+		search.clickOnConfirmCreateNewPatient();
 		
 		String actualAlertText=search.handleAlertAndGetText();
-		
-		//check for presence of element
-		if(driver.findElements(By.xpath("//div[@data-dismiss='modal']")).size()>0)
-		{
-			driver.findElement(By.xpath("//div[@data-dismiss='modal']")).click();
-		}
+	
+		search.clickOnHBDClose();
 		
 		//PatientDashboardPage
-		driver.switchTo().frame("pat");
-		String actualValue = driver.findElement(By.xpath("//h2[contains(text(),'Medical')]")).getText();
-//		System.out.println(actualValue);
-		driver.switchTo().defaultContent();
+		PatientDashboardPage pdp=new PatientDashboardPage(driver);
 		
+//		String actualValue= pdp.getAddedPatientName();
 		//should be in this test method only
-		
 		//assertion on alert
 		Assert.assertTrue(actualAlertText.contains(expectedAlertText));
 		//assertion on patient name
-		Assert.assertEquals(actualValue, expectedValue); 
+		Assert.assertEquals(pdp.getAddedPatientName(), expectedValue); 
 	}
 	
 }

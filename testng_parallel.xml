@@ -21,5 +21,12 @@
 		</classes>
 	</test> <!-- Test -->
 	
+	<test thread-count="5" name="Login Test ff">
+		<classes>
+			<class name="com.vfislk.openemrtest.LoginTest">
+			</class>
+		</classes>
+	</test> <!-- Test -->
+	
 	
 </suite> <!-- Suite -->

@@ -5,7 +5,7 @@
     <classes>
       <class name="com.vfislk.openemrtest.LoginTest">
         <methods>
-          <include name="invalidCredentialTest" invocation-numbers="0 1 2 3"/>
+          <include name="invalidCredentialTest" invocation-numbers="3"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
