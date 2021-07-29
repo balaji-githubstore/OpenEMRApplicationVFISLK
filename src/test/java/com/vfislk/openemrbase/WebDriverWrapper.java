@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -20,7 +21,10 @@ import org.testng.annotations.Parameters;
 
 import com.vfislk.openemrpages.DashboardPage;
 import com.vfislk.openemrpages.LoginPage;
+import com.vfislk.openemrpages.PatientDashboardPage;
 import com.vfislk.utilities.PropertiesUtils;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WebDriverWrapper {
 	protected WebDriver driver;
@@ -41,6 +45,14 @@ public class WebDriverWrapper {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get(url);
 		
+//		initializePageWebElement();
+	}
+	
+	//webelement should be static
+	public void initializePageWebElement()
+	{
+		PageFactory.initElements(driver, DashboardPage.class);
+		PageFactory.initElements(driver, PatientDashboardPage.class);
 	}
 	
 	public void launchBrowser(String browser)
@@ -48,15 +60,15 @@ public class WebDriverWrapper {
 		switch (browser.toLowerCase()) {
 		case "ff":
 		case "firefox":
-			System.setProperty("webdriver.gecko.driver", "src/test/resources/driver/geckodriver.exe");
+			WebDriverManager.firefoxdriver().setup();//autodownload driver based on the browser version
 			driver = new FirefoxDriver();
 			break;
 		case "ie":
-			System.setProperty("webdriver.ie.driver", "src/test/resources/driver/IEDriverServer.exe");
+			WebDriverManager.iedriver().setup();
 			driver = new InternetExplorerDriver();
 			break;
 		default:
-			System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			break;
 		}

@@ -1,50 +1,65 @@
 package com.vfislk.openemrpages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage {
-	private By usernameLocator = By.id("authUser");
-	private By passwordLocator = By.cssSelector("#clearPass");
-	private By languageLocator = By.name("languageChoice");
-	private By loginLocator = By.xpath("//button[@type='submit']");
-	private By errorLocator = By.xpath("//div[contains(text(),'Invalid')]");
-	private By ackLicCertLocator = By.partialLinkText("Acknowledgments");
-	private By appDescriptionLocator = By.xpath("//p[contains(text(),'most')]");
-
-	private WebDriver driver;
-
-	public LoginPage(WebDriver driver) {
-		this.driver = driver;
+		
+	@FindBy(id = "authUser")
+	private WebElement usernameElement;
+	
+	@FindBy(css = "#clearPass")
+	private WebElement passwordElement;
+	
+	@FindBy(name="languageChoice")
+	private WebElement languageElement;
+	
+	@FindBy(how = How.XPATH,using = "//button[@type='submit']")
+	private WebElement loginElement;
+	
+	@FindBy(xpath = "//div[contains(text(),'Invalid')]")
+	private WebElement errorElement;
+	
+	@FindBy(how = How.PARTIAL_LINK_TEXT,using = "Acknowledgments")
+	private WebElement ackLicCertWebElement;
+	
+	@FindBy(xpath = "//p[contains(text(),'most')]")
+	private WebElement appDescriptionElement;
+	
+	public LoginPage(WebDriver driver) {	
+		PageFactory.initElements(driver, this);
 	}
 
 	public void enterUsername(String username) {
-		this.driver.findElement(this.usernameLocator).sendKeys(username);
+		usernameElement.sendKeys(username);
 	}
 
 	public void enterPassword(String password) {
-		driver.findElement(passwordLocator).sendKeys(password);
+		passwordElement.sendKeys(password);
 	}
 
 	public void selectLanguageByText(String languageText) {
-		Select selectLanguage = new Select(driver.findElement(languageLocator));
+		Select selectLanguage = new Select(languageElement);
 		selectLanguage.selectByVisibleText(languageText);
 	}
 
 	public void clickOnLogin() {
-		driver.findElement(loginLocator).click();
+		loginElement.click();
 	}
 
 	public String getInvalidErrorMessage() {
-		return driver.findElement(errorLocator).getText().trim();
+		return errorElement.getText().trim();
 	}
 
 	public void clickOnAcknowledgmentsLicensingAndCertification() {
-		driver.findElement(ackLicCertLocator).click();
+		ackLicCertWebElement.click();
 	}
 
 	public String getApplicationDescription() {
-		return driver.findElement(appDescriptionLocator).getText().trim();
+		return appDescriptionElement.getText().trim();
 	}
 }

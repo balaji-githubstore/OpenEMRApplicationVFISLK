@@ -1,7 +1,12 @@
 package com.vfislk.openemrpages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,9 +16,18 @@ public class SearchOrAddPatientPage {
 	private By confirmCreateNewPatientLocator=By.xpath("//input[@value='Confirm Create New Patient']");
 	private By closeLocator=By.xpath("//div[@data-dismiss='modal']");
 	private WebDriver driver;
+	
+	@FindBy(xpath = "//div[@data-dismiss='modal']")
+	private WebElement closeElement;
+	
+	@FindBy(xpath = "//div[@data-dismiss='modal']")
+	private List<WebElement> closeElements;
+	
+	
 
 	public SearchOrAddPatientPage(WebDriver driver) {
 		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
 
 	public void switchToPatFrame() {
@@ -42,9 +56,9 @@ public class SearchOrAddPatientPage {
 	
 	public void clickOnHBDClose()
 	{
-		if(driver.findElements(closeLocator).size()>0)
+		if(closeElements.size()>0)
 		{
-			driver.findElement(closeLocator).click();
+			closeElement.click();
 		}
 	}
 }
