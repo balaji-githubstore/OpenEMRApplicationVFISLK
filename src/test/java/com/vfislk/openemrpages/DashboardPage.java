@@ -10,6 +10,7 @@ public class DashboardPage {
 	private By calendarLocator = By.xpath("//span[text()='Calendar']");
 	private By patientClientLocator = By.xpath("//div[text()='Patient/Client']");
 	private By patientsLocator = By.xpath("//div[text()='Patients']");
+	private By aboutLocator=By.xpath("//div[text()='About']");
 
 	private WebDriver driver;
 
@@ -33,6 +34,11 @@ public class DashboardPage {
 
 	public void clickOnPatients() {
 		driver.findElement(patientsLocator).click();
+	}
+	
+	public void clickOnAbout()
+	{
+		driver.findElement(aboutLocator).click();
 	}
 
 }

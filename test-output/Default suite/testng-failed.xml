@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.vfislk.openemrtest.LoginTest">
+      <class name="com.vfislk.openemrtest.AboutTest">
         <methods>
-          <include name="invalidCredentialTest" invocation-numbers="0 1 2 3"/>
+          <include name="checkHeaderAndVersionTest"/>
           <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.vfislk.openemrtest.LoginTest -->
+      </class> <!-- com.vfislk.openemrtest.AboutTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
