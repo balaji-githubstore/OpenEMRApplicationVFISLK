@@ -2,7 +2,9 @@ package com.vfislk.openemrtest;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Properties;
 
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -12,6 +14,21 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.Test;
 
 public class DemoTest {
+	
+	@Test
+	public void readProperties() throws IOException
+	{
+		FileInputStream file=new FileInputStream("src/test/resources/testdata/data.properties");
+		
+		Properties prop=new Properties();
+		prop.load(file);
+		
+		String browserName=prop.getProperty("browser");
+		System.out.println(browserName);
+		
+	}
+	
+	
 
 	@Test
 	public void excelRead() throws IOException {		

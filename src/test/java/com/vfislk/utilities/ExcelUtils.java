@@ -44,7 +44,8 @@ public class ExcelUtils {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail();
+			Assert.fail("Some issue occured on getSheetIntoObjectArray");
+		  
 		}
 		finally {
 			book.close();
