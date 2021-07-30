@@ -64,7 +64,7 @@ public class WebDriverWrapper {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get(url);
 		
-		test = extent.createTest(method.getName());
+//		test = extent.createTest(method.getName());
 	}
 
 	public void launchBrowser(String browser) {
