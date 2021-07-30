@@ -14,7 +14,7 @@ import com.vfislk.utilities.DataProviderUtils;
 
 public class AboutTest extends WebDriverWrapper {
 	
-	@Test(dataProviderClass = DataProviderUtils.class,dataProvider = "commonDataProvider")
+	@Test(dataProviderClass = DataProviderUtils.class,dataProvider = "commonDataProvider",groups = {"high","about"})
 	public void checkHeaderAndVersionTest(String username,String password,String language,String expectedHeader,String expectedVersionNumber) throws IOException
 	{
 		LoginPage login=new LoginPage(driver);	

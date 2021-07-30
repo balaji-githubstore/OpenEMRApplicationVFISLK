@@ -36,22 +36,20 @@ public class WebDriverWrapper {
 	public ExtentReports extent;
 	public ExtentTest test;
 
-	@BeforeSuite
+	@BeforeSuite(alwaysRun = true)
 	public void start() {
-
 		extent = new ExtentReports();
-
 		ExtentSparkReporter htmlReporter = new ExtentSparkReporter("extent-reportt/testReport.html");
 		extent.attachReporter(htmlReporter);
 	}
 
-	@AfterSuite()
+	@AfterSuite(alwaysRun = true)
 	public void end() {
 		// to write or update test information to reporter
 		extent.flush();
 	}
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	@Parameters({ "browsername", "url" })
 	public void setUp(@Optional("ch") String browser,
 			@Optional("https://demo.openemr.io/a/openemr/index.php") String url, Method method) {
@@ -65,7 +63,7 @@ public class WebDriverWrapper {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get(url);
-
+		
 		test = extent.createTest(method.getName());
 	}
 
@@ -98,7 +96,7 @@ public class WebDriverWrapper {
 		return base64;
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void tearDown(ITestResult result) throws IOException {
 		if (result.getStatus() == ITestResult.FAILURE) {
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " FAILED ", ExtentColor.RED));

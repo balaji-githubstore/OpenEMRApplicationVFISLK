@@ -8,6 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -15,6 +16,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
+@Ignore
 public class ExtentReportDemoTest {
 	public ExtentReports extent; //setup the report
 	public ExtentTest test; //log the detail in the report
@@ -59,15 +61,16 @@ public class ExtentReportDemoTest {
 		
 	}
 	
-	@Test
-	public void validTest()
+	@Test(timeOut = 1000)
+	public void validTest() throws InterruptedException
 	{
+		Thread.sleep(2000);
 		System.out.println("valid");
 		Assert.fail("failed driver");
 		test.log(Status.INFO, "validTest completed!!");
 	}
-
-	@Test
+	
+	@Test(dependsOnMethods = "validTest",alwaysRun = true)
 	public void invalidTest()
 	{
 		System.out.println("invalid");

@@ -1,147 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="1" ignored="1" total="2" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="150600" started-at="2021-07-30T10:11:09 IST" finished-at="2021-07-30T10:13:40 IST">
+  <suite name="Default suite" duration-ms="1156" started-at="2021-07-30T13:11:57 IST" finished-at="2021-07-30T13:11:58 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="150600" started-at="2021-07-30T10:11:09 IST" finished-at="2021-07-30T10:13:40 IST">
-      <class name="com.vfislk.openemrtest.AboutTest">
-        <test-method status="PASS" signature="start()[pri:0, instance:com.vfislk.openemrtest.AboutTest@34f7cfd9]" name="start" is-config="true" duration-ms="6514" started-at="2021-07-30T10:11:03 IST" finished-at="2021-07-30T10:11:09 IST">
+    <test name="Default test" duration-ms="1156" started-at="2021-07-30T13:11:57 IST" finished-at="2021-07-30T13:11:58 IST">
+      <class name="com.vfislk.openemrtest.ExtentReportDemoTest">
+        <test-method status="PASS" signature="start()[pri:0, instance:com.vfislk.openemrtest.ExtentReportDemoTest@401e7803]" name="start" is-config="true" duration-ms="572" started-at="2021-07-30T13:11:57 IST" finished-at="2021-07-30T13:11:57 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start -->
-        <test-method status="PASS" signature="setUp(java.lang.String,java.lang.String,java.lang.reflect.Method)[pri:0, instance:com.vfislk.openemrtest.AboutTest@34f7cfd9]" name="setUp" is-config="true" duration-ms="37101" started-at="2021-07-30T10:11:17 IST" finished-at="2021-07-30T10:11:54 IST">
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.vfislk.openemrtest.ExtentReportDemoTest@401e7803]" name="beforeMethod" is-config="true" duration-ms="16" started-at="2021-07-30T13:11:57 IST" finished-at="2021-07-30T13:11:57 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[ch]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[https://demo.openemr.io/a/openemr/index.php]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void com.vfislk.openemrtest.AboutTest.checkHeaderAndVersionTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)]]>
+                <![CDATA[public void com.vfislk.openemrtest.ExtentReportDemoTest.validTest() throws java.lang.InterruptedException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="checkHeaderAndVersionTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.vfislk.openemrtest.AboutTest@34f7cfd9]" name="checkHeaderAndVersionTest" duration-ms="16384" started-at="2021-07-30T10:11:54 IST" data-provider="commonDataProvider" finished-at="2021-07-30T10:12:10 IST">
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="validTest()[pri:0, instance:com.vfislk.openemrtest.ExtentReportDemoTest@401e7803]" name="validTest" duration-ms="1030" started-at="2021-07-30T13:11:57 IST" finished-at="2021-07-30T13:11:58 IST">
+          <exception class="org.testng.internal.thread.ThreadTimeoutException">
+            <message>
+              <![CDATA[Method com.vfislk.openemrtest.ExtentReportDemoTest.validTest() didn't finish within the time-out 1000]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.internal.thread.ThreadTimeoutException: Method com.vfislk.openemrtest.ExtentReportDemoTest.validTest() didn't finish within the time-out 1000
+at org.testng.internal.MethodInvocationHelper.invokeWithTimeoutWithNewExecutor(MethodInvocationHelper.java:384)
+at org.testng.internal.MethodInvocationHelper.invokeWithTimeout(MethodInvocationHelper.java:283)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:604)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1259)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.internal.thread.ThreadTimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validTest -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.vfislk.openemrtest.ExtentReportDemoTest@401e7803]" name="afterMethod" is-config="true" duration-ms="16" started-at="2021-07-30T13:11:58 IST" finished-at="2021-07-30T13:11:58 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[admin]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[pass]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[English (Indian)]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[About OpenEMR]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Version Number: v6.0.0 (1)]]>
+                <![CDATA[[TestResult name=validTest status=FAILURE method=ExtentReportDemoTest.validTest()[pri:0, instance:com.vfislk.openemrtest.ExtentReportDemoTest@401e7803] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkHeaderAndVersionTest -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.vfislk.openemrtest.AboutTest@34f7cfd9]" name="tearDown" is-config="true" duration-ms="61206" started-at="2021-07-30T10:12:10 IST" finished-at="2021-07-30T10:13:12 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=checkHeaderAndVersionTest status=SUCCESS method=AboutTest.checkHeaderAndVersionTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.vfislk.openemrtest.AboutTest@34f7cfd9] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp(java.lang.String,java.lang.String,java.lang.reflect.Method)[pri:0, instance:com.vfislk.openemrtest.AboutTest@34f7cfd9]" name="setUp" is-config="true" duration-ms="12400" started-at="2021-07-30T10:13:12 IST" finished-at="2021-07-30T10:13:24 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[ch]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[https://demo.openemr.io/a/openemr/index.php]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void com.vfislk.openemrtest.AboutTest.checkHeaderAndVersionTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="checkHeaderAndVersionTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.vfislk.openemrtest.AboutTest@34f7cfd9]" name="checkHeaderAndVersionTest" duration-ms="8568" started-at="2021-07-30T10:13:24 IST" data-provider="commonDataProvider" finished-at="2021-07-30T10:13:33 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[accountant]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[accountant]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[English (Indian)]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[About OpenEMR]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Version Number: v6.0.0 (1)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkHeaderAndVersionTest -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.vfislk.openemrtest.AboutTest@34f7cfd9]" name="tearDown" is-config="true" duration-ms="7193" started-at="2021-07-30T10:13:33 IST" finished-at="2021-07-30T10:13:40 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=checkHeaderAndVersionTest status=SUCCESS method=AboutTest.checkHeaderAndVersionTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.vfislk.openemrtest.AboutTest@34f7cfd9] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="end()[pri:0, instance:com.vfislk.openemrtest.AboutTest@34f7cfd9]" name="end" is-config="true" duration-ms="6057" started-at="2021-07-30T10:13:40 IST" finished-at="2021-07-30T10:13:46 IST">
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="end()[pri:0, instance:com.vfislk.openemrtest.ExtentReportDemoTest@401e7803]" name="end" is-config="true" duration-ms="749" started-at="2021-07-30T13:11:58 IST" finished-at="2021-07-30T13:11:59 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
-      </class> <!-- com.vfislk.openemrtest.AboutTest -->
+      </class> <!-- com.vfislk.openemrtest.ExtentReportDemoTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

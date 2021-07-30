@@ -11,7 +11,7 @@ import com.vfislk.utilities.DataProviderUtils;
 	
 public class LoginTest extends WebDriverWrapper {
 
-	@Test(dataProviderClass = DataProviderUtils.class,dataProvider = "commonDataProvider")
+	@Test(dataProviderClass = DataProviderUtils.class,dataProvider = "commonDataProvider",groups = {"high","valid"})
 	public void invalidCredentialTest(String username,String password,String language,String expectedValue) {
 		LoginPage login = new LoginPage(driver);
 		login.enterUsername(username);
@@ -22,7 +22,7 @@ public class LoginTest extends WebDriverWrapper {
 		Assert.assertEquals(login.getInvalidErrorMessage(), expectedValue);
 	}
 	
-	@Test(dataProviderClass = DataProviderUtils.class,dataProvider = "validCredentialData",description = "Valid Credential Test")
+	@Test(dataProviderClass = DataProviderUtils.class,dataProvider = "validCredentialData",description = "Valid Credential Test",groups = {"high","login"})
 	public void validCredentialTest(String username,String password,String language,String expectedValue) {
 	
 		LoginPage login = new LoginPage(driver);

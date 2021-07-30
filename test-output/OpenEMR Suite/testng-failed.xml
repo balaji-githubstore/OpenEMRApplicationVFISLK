@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [OpenEMR Suite]">
-  <parameter name="url" value="https://demo.openemr.io/a/openemr/index.php"/>
-  <test thread-count="5" name="Login Test ch(failed)">
+  <test thread-count="5" name="All(failed)">
+    <groups>
+      <run>
+        <include name="high"/>
+      </run>
+    </groups>
     <classes>
       <class name="com.vfislk.openemrtest.LoginTest">
         <methods>
-          <include name="invalidCredentialTest"/>
-          <include name="setUp"/>
+          <include name="invalidCredentialTest" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="start"/>
+          <include name="end"/>
           <include name="validCredentialTest"/>
         </methods>
       </class> <!-- com.vfislk.openemrtest.LoginTest -->
+      <class name="com.vfislk.openemrtest.AboutTest">
+        <methods>
+          <include name="checkHeaderAndVersionTest" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="start"/>
+          <include name="end"/>
+        </methods>
+      </class> <!-- com.vfislk.openemrtest.AboutTest -->
     </classes>
-  </test> <!-- Login Test ch(failed) -->
+  </test> <!-- All(failed) -->
 </suite> <!-- Failed suite [OpenEMR Suite] -->
