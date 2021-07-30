@@ -3,13 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.vfislk.openemrtest.AboutTest">
+      <class name="com.vfislk.openemrtest.ExtentReportDemoTest">
         <methods>
-          <include name="checkHeaderAndVersionTest"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
+          <include name="beforeMethod"/>
+          <include name="validTest"/>
+          <include name="end"/>
+          <include name="afterMethod"/>
+          <include name="start"/>
         </methods>
-      </class> <!-- com.vfislk.openemrtest.AboutTest -->
+      </class> <!-- com.vfislk.openemrtest.ExtentReportDemoTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
